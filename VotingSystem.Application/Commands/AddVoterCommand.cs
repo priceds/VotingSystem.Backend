@@ -22,7 +22,7 @@ namespace VotingSystem.Application.Commands
 
         public async Task<int> Handle(AddVoterCommand command,CancellationToken cancellationToken)
         {
-            var voterToAdd = new Voter { FirstName = command.FirstName, LastName = command.LastName,HasVoted=false };
+            var voterToAdd = new Voter { FirstName = command.FirstName, LastName = command.LastName,HasVoted=false,AddedOn=DateTime.Now,UpdatedOn=DateTime.Now };
             _context.Voters.Add(voterToAdd);    
             await _context.SaveChangesAsync(cancellationToken);
             return voterToAdd.VoterId;

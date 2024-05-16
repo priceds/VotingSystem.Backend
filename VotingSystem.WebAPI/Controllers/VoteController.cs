@@ -23,6 +23,11 @@ namespace VotingSystem.WebAPI.Controllers
             return await _sender.Send(command);
         }
 
+        [HttpGet("GetVotes")]
+        public async Task<List<VoteDto>> GetVotes([FromBody] GetVotesQuery query)
+        {
+            return await _sender.Send(query);
+        }
 
     }
 }
